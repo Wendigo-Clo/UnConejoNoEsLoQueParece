@@ -1,0 +1,75 @@
+extends CharacterBody2D
+
+
+var speed : float = 380.0
+var jumpForce :float = -1200.0
+#var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravity : float = 2500
+var gravity_up = 1800.0
+var gravity_down = 3400.0
+var isJumping = false
+
+var grounded := false
+
+#var estado = ["idle", "walk", "jump"]  # idle, walk, jump
+
+
+
+var max_jumps := 2  # cantidad máxima de saltos (doble salto = 2)
+var jumps_left := max_jumps
+
+func _ready() -> void:
+	$AnimationPlayer.connect("animation_finished", Callable(self,"_on_animation_finished"))
+	pass
+	
+	
+	
+func _physics_process(delta: float) -> void:
+	var input = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	if input.length() > 0:
+		velocity.x = input.x * speed
+		$Sprite2D.flip_h = input.x < 0
+	else:
+		velocity.x = move_toward(velocity.x, 0, speed)
+			
+
+	grounded = $GoundRay.is_colliding() or is_on_floor()
+	if not grounded:
+		$AnimationPlayer.play("jump")
+		if velocity.y < 0:
+			velocity.y += gravity_up * delta
+		else:
+			velocity.y += gravity_down *delta
+			$AnimationPlayer.play("fall")
+	else:
+		velocity.y = 0
+		jumps_left = max_jumps
+		if input.length() > 0:
+			$AnimationPlayer.play("walk")
+		else:
+			$AnimationPlayer.play("RESET")
+		
+	if Input.is_action_just_pressed("ui_accept") and jumps_left > 0:
+		velocity.y = jumpForce
+		jumps_left -= 1
+
+	# Mover y detectar suelo
+	move_and_slide()
+
+func die():
+	Global.sigueVivo = false
+	Global.playerDeath()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if (body.is_in_group("enemy")):
+		print("Has muerto!")
+		die()
+	pass # Replace with function body.
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if (area.is_in_group("enemy")):
+		print("Has muerto!")
+		die()
+	pass # Replace with function body.

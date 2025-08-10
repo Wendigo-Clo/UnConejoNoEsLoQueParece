@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2s5qgbemitrk"]
+
+[ext_resource type="Script" uid="uid://b0p5hlb6sfabr" path="res://scripts/enemy.gd" id="1_7p1mj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7p1mj"]
+
+[node name="Enemy" type="Node2D" groups=["enemy"]]
+script = ExtResource("1_7p1mj")
+
+[node name="Area2D" type="Area2D" parent="." groups=["enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["enemy"]]
+scale = Vector2(100, 2.175)
+shape = SubResource("RectangleShape2D_7p1mj")
+debug_color = Color(0.988235, 0, 0.290196, 0.85098)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -1013.0
+offset_top = -40.0
+offset_right = 996.0
+offset_bottom = 54.0
+color = Color(1, 0, 0.176471, 1)

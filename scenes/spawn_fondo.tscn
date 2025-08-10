@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b58l48c3x22y7"]
+
+[ext_resource type="Script" uid="uid://duxf3m4o3kp7l" path="res://scripts/spawn_fondo.gd" id="1_tfh0s"]
+[ext_resource type="Texture2D" uid="uid://ctyu55r5veqqb" path="res://assets/Fondos/Galera_Fondo-Agujero.png" id="2_6ic81"]
+
+[node name="SpawnFondo" type="Node2D"]
+script = ExtResource("1_tfh0s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_6ic81")

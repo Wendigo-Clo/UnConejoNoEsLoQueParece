@@ -1,0 +1,56 @@
+[gd_scene load_steps=11 format=3 uid="uid://m5ic7tt5qe8t"]
+
+[ext_resource type="Script" uid="uid://oav4r5rh0fj1" path="res://scripts/main_game.gd" id="1_s3esy"]
+[ext_resource type="PackedScene" uid="uid://d2s5qgbemitrk" path="res://scenes/enemy.tscn" id="2_ipu61"]
+[ext_resource type="PackedScene" uid="uid://dtgmtc00b2hco" path="res://scenes/death.tscn" id="2_wi4c7"]
+[ext_resource type="PackedScene" uid="uid://cmleryk41tqb3" path="res://scenes/player.tscn" id="3_0rdsr"]
+[ext_resource type="PackedScene" uid="uid://dt7b8abisnpp5" path="res://scenes/parallax_background.tscn" id="5_ipu61"]
+[ext_resource type="PackedScene" uid="uid://b4a6r62dx6yqb" path="res://scenes/spawn_plataform.tscn" id="5_ygxny"]
+[ext_resource type="PackedScene" uid="uid://ba5mqurtte1we" path="res://scenes/pausa.tscn" id="6_ygxny"]
+[ext_resource type="Texture2D" uid="uid://5moqvr16bobo" path="res://assets/Tileset.png" id="7_70vka"]
+[ext_resource type="AudioStream" uid="uid://bydlcpyop2bd4" path="res://assets/Música/MUS_Patos esquizos_Game.wav" id="9_2l77h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipu61"]
+
+[node name="Main_game" type="Node2D"]
+script = ExtResource("1_s3esy")
+deathPack = ExtResource("2_wi4c7")
+enemyPack = ExtResource("2_ipu61")
+
+[node name="player" parent="." instance=ExtResource("3_0rdsr")]
+position = Vector2(519, 548)
+scale = Vector2(2, 2)
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("5_ipu61")]
+
+[node name="SpawnPlataform" parent="." instance=ExtResource("5_ygxny")]
+
+[node name="provisorio" type="StaticBody2D" parent="."]
+light_mask = 0
+visibility_layer = 4
+position = Vector2(954, 1090)
+scale = Vector2(2.945, 2.945)
+metadata/_edit_group_ = true
+
+[node name="CollisionShaprovisiorio2pe2D" type="CollisionShape2D" parent="provisorio"]
+light_mask = 0
+visibility_layer = 4
+scale = Vector2(41.66, 1)
+shape = SubResource("RectangleShape2D_ipu61")
+
+[node name="Sprite2D" type="Sprite2D" parent="provisorio"]
+modulate = Color(1, 0.435294, 1, 1)
+texture_repeat = 2
+position = Vector2(-1, 0)
+scale = Vector2(13.96, 0.701)
+texture = ExtResource("7_70vka")
+region_enabled = true
+region_rect = Rect2(17.5, 31, 47, 21)
+region_filter_clip_enabled = true
+
+[node name="pausa" parent="." instance=ExtResource("6_ygxny")]
+
+[node name="musica" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_2l77h")
+volume_db = 10.0
+autoplay = true

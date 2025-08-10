@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkyculbiv138m"]
+
+[ext_resource type="PackedScene" uid="uid://bu55lqu4ohwhw" path="res://scenes/floor.tscn" id="1_wykyb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvhfp"]
+
+[node name="Wall" type="Node2D" groups=["wall"]]
+light_mask = 0
+visibility_layer = 4
+
+[node name="celling" type="StaticBody2D" parent="."]
+visible = false
+light_mask = 0
+visibility_layer = 4
+position = Vector2(965, 5)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="celling"]
+visible = false
+light_mask = 0
+visibility_layer = 4
+scale = Vector2(100, 2)
+shape = SubResource("RectangleShape2D_uvhfp")
+disabled = true
+
+[node name="floor" parent="." instance=ExtResource("1_wykyb")]
+position = Vector2(973, 1054)

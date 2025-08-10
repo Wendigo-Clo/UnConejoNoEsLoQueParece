@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu55lqu4ohwhw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvhfp"]
+
+[node name="floor" type="StaticBody2D"]
+light_mask = 0
+visibility_layer = 4
+collision_layer = 8
+collision_mask = 8
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 4
+visibility_layer = 4
+scale = Vector2(100, 2)
+shape = SubResource("RectangleShape2D_uvhfp")

@@ -1,0 +1,150 @@
+[gd_scene load_steps=10 format=3 uid="uid://cmleryk41tqb3"]
+
+[ext_resource type="Script" uid="uid://dg86kie3rkf3m" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://dqajqn1ylnowu" path="res://assets/Conejo-Anim_SpriteSheet.png" id="2_g2els"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
+
+[sub_resource type="Animation" id="Animation_tuyoq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -7.33333)]
+}
+
+[sub_resource type="Animation" id="Animation_g2els"]
+resource_name = "fall"
+length = 0.1345
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [13, 15]
+}
+
+[sub_resource type="Animation" id="Animation_qhqgy"]
+resource_name = "jump"
+length = 1.1475
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 0.4, 0.433333, 0.466667, 0.5, 0.533333, 0.566667, 0.6, 0.633333, 0.664384, 0.7, 0.733333, 0.766667, 0.8, 0.833333, 0.866667, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 10, 11, 11, 11, 12, 12, 12, 13, 14, 15, 15, 16, 17, 18, 19, 20, 21, 21]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.227551, 0.367647, 0.577004),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, -7.33333), Vector2(-0.666667, -7), Vector2(-0.666667, -27.6667), Vector2(-0.666667, -7)]
+}
+
+[sub_resource type="Animation" id="Animation_qlg0r"]
+resource_name = "walk"
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fjrip"]
+_data = {
+&"RESET": SubResource("Animation_tuyoq"),
+&"fall": SubResource("Animation_g2els"),
+&"jump": SubResource("Animation_qhqgy"),
+&"walk": SubResource("Animation_qlg0r")
+}
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
+light_mask = 4
+collision_layer = 6
+script = ExtResource("1_g2els")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 4
+position = Vector2(-3, -22)
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_g2els")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-7, -20)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_g2els")
+hframes = 22
+
+[node name="Area2D" type="Area2D" parent="."]
+light_mask = 4
+scale = Vector2(3, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+light_mask = 4
+position = Vector2(-1, -7.33333)
+shape = SubResource("RectangleShape2D_dqkch")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_fjrip")
+}
+autoplay = "RESET"
+
+[node name="GoundRay" type="RayCast2D" parent="."]
+light_mask = 6
+target_position = Vector2(0, 48)
+collision_mask = 6
+collide_with_areas = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_right = 1920
+limit_smoothed = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4a6r62dx6yqb"]
+
+[ext_resource type="Script" uid="uid://dcu6v12ucpw46" path="res://scripts/spawn_plataform.gd" id="1_3ll31"]
+[ext_resource type="PackedScene" uid="uid://b6ksdtdufc01g" path="res://scenes/plataform.tscn" id="2_cfevk"]
+[ext_resource type="PackedScene" uid="uid://oi7rkxv0xcf1" path="res://scenes/plataform_spike.tscn" id="3_3efy7"]
+
+[node name="SpawnPlataform" type="Node2D"]
+script = ExtResource("1_3ll31")
+plataform = ExtResource("2_cfevk")
+plataformSpike = ExtResource("3_3efy7")
+distancia_spawn = 10
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

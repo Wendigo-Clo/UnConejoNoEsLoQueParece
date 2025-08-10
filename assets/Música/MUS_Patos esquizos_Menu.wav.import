@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bwl4fbkek65xp"
+path="res://.godot/imported/MUS_Patos esquizos_Menu.wav-e86cde73c771f8a6252887f893967496.sample"
+
+[deps]
+
+source_file="res://assets/Música/MUS_Patos esquizos_Menu.wav"
+dest_files=["res://.godot/imported/MUS_Patos esquizos_Menu.wav-e86cde73c771f8a6252887f893967496.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

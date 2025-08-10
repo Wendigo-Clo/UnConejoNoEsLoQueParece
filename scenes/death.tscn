@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtgmtc00b2hco"]
+
+[ext_resource type="Script" uid="uid://bnasbibi7myu3" path="res://scripts/death.gd" id="1_0hhgj"]
+
+[node name="Muerte" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_0hhgj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+process_mode = 3
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.329412, 1, 0.0862745)
+
+[node name="Control" type="Control" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/Control"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -357.5
+offset_right = 357.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ColorRect/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 120
+text = "Has muerto!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rein" type="Button" parent="ColorRect/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "Reintentar"
+
+[node name="salir" type="Button" parent="ColorRect/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "Salir"
+
+[connection signal="pressed" from="ColorRect/Control/VBoxContainer/Rein" to="." method="_on_rein_pressed"]
+[connection signal="pressed" from="ColorRect/Control/VBoxContainer/salir" to="." method="_on_salir_pressed"]
