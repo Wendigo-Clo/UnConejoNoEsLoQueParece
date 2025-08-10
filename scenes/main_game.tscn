@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://m5ic7tt5qe8t"]
+[gd_scene load_steps=12 format=3 uid="uid://m5ic7tt5qe8t"]
 
 [ext_resource type="Script" uid="uid://oav4r5rh0fj1" path="res://scripts/main_game.gd" id="1_s3esy"]
 [ext_resource type="PackedScene" uid="uid://d2s5qgbemitrk" path="res://scenes/enemy.tscn" id="2_ipu61"]
+[ext_resource type="PackedScene" uid="uid://1wdj4s10plus" path="res://scenes/fade.tscn" id="2_nqdth"]
 [ext_resource type="PackedScene" uid="uid://dtgmtc00b2hco" path="res://scenes/death.tscn" id="2_wi4c7"]
 [ext_resource type="PackedScene" uid="uid://cmleryk41tqb3" path="res://scenes/player.tscn" id="3_0rdsr"]
 [ext_resource type="PackedScene" uid="uid://dt7b8abisnpp5" path="res://scenes/parallax_background.tscn" id="5_ipu61"]
@@ -14,12 +15,12 @@
 
 [node name="Main_game" type="Node2D"]
 script = ExtResource("1_s3esy")
+fade = ExtResource("2_nqdth")
 deathPack = ExtResource("2_wi4c7")
 enemyPack = ExtResource("2_ipu61")
 
 [node name="player" parent="." instance=ExtResource("3_0rdsr")]
-position = Vector2(519, 548)
-scale = Vector2(2, 2)
+position = Vector2(1000, 900)
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("5_ipu61")]
 
@@ -54,3 +55,9 @@ region_filter_clip_enabled = true
 stream = ExtResource("9_2l77h")
 volume_db = 10.0
 autoplay = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

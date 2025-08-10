@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://d36cc1b21wb2p"]
+
+[ext_resource type="Script" uid="uid://civg08nqsq8f5" path="res://scripts/spawner_fondo.gd" id="1_p4qhc"]
+[ext_resource type="PackedScene" uid="uid://cmysbkncevld1" path="res://scenes/detalle_fondo.tscn" id="2_a8c40"]
+
+[node name="SpawnerFondo" type="Node2D"]
+script = ExtResource("1_p4qhc")
+detail_scene = ExtResource("2_a8c40")

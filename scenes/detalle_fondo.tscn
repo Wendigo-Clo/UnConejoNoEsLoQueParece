@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmysbkncevld1"]
+
+[ext_resource type="Script" uid="uid://dv3dbok4si6cb" path="res://scripts/detalle_fondo.gd" id="1_5ycvi"]
+[ext_resource type="Texture2D" uid="uid://ctyu55r5veqqb" path="res://assets/Fondos/Galera_Fondo-Agujero.png" id="2_vhtnc"]
+
+[node name="DetalleFondo" type="Node2D"]
+z_index = -1
+script = ExtResource("1_5ycvi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("2_vhtnc")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

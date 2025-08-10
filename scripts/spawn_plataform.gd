@@ -13,7 +13,7 @@ var last_spawn_y = INF
 var ultima_x = -INF
 var distancia_minima_x = 50  # píxeles que como mínimo deben separarse en X
 
-var porcentaje_picos = 30
+var porcentaje_picos = 20
 var margen_spawn = 100
 
 var ultimoFue = null

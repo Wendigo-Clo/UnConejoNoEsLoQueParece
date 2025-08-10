@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var anim_tree = $AnimationTree
+@onready var state_machine = anim_tree.get("parameters/playback")
 
 var speed : float = 380.0
 var jumpForce :float = -1200.0
@@ -19,7 +21,7 @@ var max_jumps := 2  # cantidad máxima de saltos (doble salto = 2)
 var jumps_left := max_jumps
 
 func _ready() -> void:
-	$AnimationPlayer.connect("animation_finished", Callable(self,"_on_animation_finished"))
+	anim_tree.active = true
 	pass
 	
 	
@@ -35,19 +37,24 @@ func _physics_process(delta: float) -> void:
 
 	grounded = $GoundRay.is_colliding() or is_on_floor()
 	if not grounded:
-		$AnimationPlayer.play("jump")
-		if velocity.y < 0:
+		#state_machine.travel("jump")
+		#$AnimationPlayer.play("jump")
+		if velocity.y <= 0:
 			velocity.y += gravity_up * delta
-		else:
-			velocity.y += gravity_down *delta
-			$AnimationPlayer.play("fall")
+			state_machine.travel("jump")
+		elif(velocity.y > 0 and not grounded):
+			velocity.y += gravity_down *delta 
+			state_machine.travel("fall")
+			#$AnimationPlayer.play("fall")
 	else:
 		velocity.y = 0
 		jumps_left = max_jumps
 		if input.length() > 0:
-			$AnimationPlayer.play("walk")
+			state_machine.travel("walk")
+			#$AnimationPlayer.play("walk")
 		else:
-			$AnimationPlayer.play("RESET")
+			state_machine.travel("RESET")
+			#$AnimationPlayer.play("RESET")
 		
 	if Input.is_action_just_pressed("ui_accept") and jumps_left > 0:
 		velocity.y = jumpForce

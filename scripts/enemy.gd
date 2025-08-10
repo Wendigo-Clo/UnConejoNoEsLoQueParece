@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var speed : float = 50.0  # Velocidad de subida
+@export var speed : float = 70.0  # Velocidad de subida
 var player : Node2D
 
 func _ready():

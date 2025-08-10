@@ -218,7 +218,7 @@ visibility_layer = 2
 script = ExtResource("1_83wwh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0.435294, 1, 1)
+modulate = Color(0.889685, 0.649859, 0.325899, 1)
 texture_repeat = 2
 position = Vector2(-1, 0)
 scale = Vector2(7, 2.511)
@@ -229,6 +229,7 @@ region_filter_clip_enabled = true
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 modulate = Color(1, 0.305882, 1, 1)
+z_index = -2
 texture_repeat = 2
 position = Vector2(-1, 0)
 scale = Vector2(8.157, 6.716)

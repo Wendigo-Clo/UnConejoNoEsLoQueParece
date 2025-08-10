@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dt7b8abisnpp5"]
+[gd_scene load_steps=3 format=3 uid="uid://dt7b8abisnpp5"]
 
+[ext_resource type="Texture2D" uid="uid://ctyu55r5veqqb" path="res://assets/Fondos/Galera_Fondo-Agujero.png" id="2_yqcdc"]
 [ext_resource type="Texture2D" uid="uid://5ddnxo13gckr" path="res://assets/Fondos/Fondo_Galera-B.png" id="3_r7lvs"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
@@ -11,3 +12,17 @@ motion_mirroring = Vector2(0, 5680)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
 position = Vector2(960, -1772)
 texture = ExtResource("3_r7lvs")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(-0.5, -0.5)
+motion_mirroring = Vector2(0, 1200)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4"]
+position = Vector2(415, 963)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_yqcdc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxLayer4"]
+position = Vector2(1261, 149)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_yqcdc")
