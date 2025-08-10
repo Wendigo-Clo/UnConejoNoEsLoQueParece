@@ -1,8 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://cmleryk41tqb3"]
+[gd_scene load_steps=26 format=3 uid="uid://cmleryk41tqb3"]
 
 [ext_resource type="Script" uid="uid://dg86kie3rkf3m" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://bacl83luxwqic" path="res://assets/Conejo-Anim_SS-Salto.png" id="3_dqkch"]
 [ext_resource type="Texture2D" uid="uid://g6atq2x5xfia" path="res://assets/Conejo-Anim_SS-Caminar.png" id="3_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://bvruf44qc3r8g" path="res://assets/Música/SFX/SFX_Rabbit_Jump.wav" id="4_dqkch"]
+[ext_resource type="AudioStream" uid="uid://dabyrwky7i4xv" path="res://assets/Música/SFX/SFX_Snake_Bite.wav" id="5_qlg0r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 
@@ -66,60 +68,6 @@ states/walk/node = SubResource("AnimationNodeAnimation_dqkch")
 states/walk/position = Vector2(506.667, 71.3333)
 transitions = ["fall", "walk", SubResource("AnimationNodeStateMachineTransition_qlg0r"), "walk", "fall", SubResource("AnimationNodeStateMachineTransition_tuyoq"), "fall", "jump", SubResource("AnimationNodeStateMachineTransition_fjrip"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_smehm"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_ur7pv"), "jump", "walk", SubResource("AnimationNodeStateMachineTransition_y4r1p"), "RESET", "jump", SubResource("AnimationNodeStateMachineTransition_jej6c"), "RESET", "walk", SubResource("AnimationNodeStateMachineTransition_3v2ag")]
 
-[sub_resource type="Animation" id="Animation_qhqgy"]
-resource_name = "walk"
-length = 0.3325
-loop_mode = 1
-step = 0.0333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("3_qhqgy"), ExtResource("3_qhqgy")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.397334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [9, 9]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.330093, 0.3325),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(35, 0), Vector2(35, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.0333, 0.0666, 0.0999, 0.1332, 0.1665, 0.1998, 0.2331, 0.2664),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
-}
-
 [sub_resource type="Animation" id="Animation_dqkch"]
 length = 0.001
 tracks/0/type = "value"
@@ -181,6 +129,47 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tuyoq"]
+resource_name = "fall"
+length = 0.1115
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0876173),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_dqkch"), ExtResource("3_dqkch")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0876173),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [22, 22]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [14, 15]
 }
 
 [sub_resource type="Animation" id="Animation_qlg0r"]
@@ -248,10 +237,11 @@ tracks/4/keys = {
 "values": [Vector2(-2, -18.5), Vector2(-2, -18.5)]
 }
 
-[sub_resource type="Animation" id="Animation_tuyoq"]
-resource_name = "fall"
-length = 0.1115
+[sub_resource type="Animation" id="Animation_qhqgy"]
+resource_name = "walk"
+length = 0.3325
 loop_mode = 1
+step = 0.0333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -259,10 +249,10 @@ tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0876173),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("3_dqkch"), ExtResource("3_dqkch")]
+"values": [ExtResource("3_qhqgy"), ExtResource("3_qhqgy")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -271,22 +261,34 @@ tracks/1/path = NodePath(".:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0876173),
+"times": PackedFloat32Array(0, 0.397334),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [22, 22]
+"values": [9, 9]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".:frame")
+tracks/2/path = NodePath(".:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0333333),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.330093, 0.3325),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(35, 0), Vector2(35, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0333, 0.0666, 0.0999, 0.1332, 0.1665, 0.1998, 0.2331, 0.2664),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [14, 15]
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fjrip"]
@@ -345,6 +347,14 @@ libraries = {
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_qhqgy")
 hframes = 9
+
+[node name="ConejoJump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_dqkch")
+volume_db = 8.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_qlg0r")
+volume_db = 8.0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

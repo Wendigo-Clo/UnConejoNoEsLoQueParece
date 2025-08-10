@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://m5ic7tt5qe8t"]
+[gd_scene load_steps=13 format=3 uid="uid://m5ic7tt5qe8t"]
 
 [ext_resource type="Script" uid="uid://oav4r5rh0fj1" path="res://scripts/main_game.gd" id="1_s3esy"]
 [ext_resource type="PackedScene" uid="uid://d2s5qgbemitrk" path="res://scenes/enemy.tscn" id="2_ipu61"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ba5mqurtte1we" path="res://scenes/pausa.tscn" id="6_ygxny"]
 [ext_resource type="Texture2D" uid="uid://5moqvr16bobo" path="res://assets/Tileset.png" id="7_70vka"]
 [ext_resource type="AudioStream" uid="uid://bydlcpyop2bd4" path="res://assets/Música/MUS_Patos esquizos_Game.wav" id="9_2l77h"]
+[ext_resource type="AudioStream" uid="uid://dabyrwky7i4xv" path="res://assets/Música/SFX/SFX_Snake_Bite.wav" id="11_5cypo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ipu61"]
 
@@ -59,5 +60,9 @@ autoplay = true
 [node name="Timer" type="Timer" parent="."]
 wait_time = 15.0
 autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_5cypo")
+volume_db = 8.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 func _ready() -> void:
-	#Global.connect("muertePlayer",Callable(self, "_on_muertePlayer"))
+	$ColorRect/AnimationPlayer.play("cortinas")
 	$ColorRect.visible = not $ColorRect.visible
 	get_tree().paused = not get_tree().paused
 

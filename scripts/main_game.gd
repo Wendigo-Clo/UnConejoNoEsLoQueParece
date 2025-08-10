@@ -23,6 +23,10 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if(!Global.sigueVivo):
+		if(Global.serpienteLlena):
+			$AudioStreamPlayer2D.play
+			await get_tree().create_timer(1.2).timeout
+			
 		var escenaMuerte = deathPack.instantiate()
 		add_child(escenaMuerte)
 

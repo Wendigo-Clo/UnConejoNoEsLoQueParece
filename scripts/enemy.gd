@@ -12,3 +12,9 @@ func _physics_process(delta):
 	# Si la lava está a la altura del jugador, lo mata
 	#if position.y < player.position.y + 10:
 		#player.die()
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if(area.is_in_group("player")):
+		Global.serpienteLlena = true
+	pass # Replace with function body.

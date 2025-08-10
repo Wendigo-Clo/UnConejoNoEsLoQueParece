@@ -1,63 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://c1l4ld31ta0uw"]
+[gd_scene load_steps=14 format=3 uid="uid://c1l4ld31ta0uw"]
 
 [ext_resource type="Script" uid="uid://c213d7ugnpboa" path="res://scripts/menuPrincipal.gd" id="1_w5ui5"]
 [ext_resource type="Texture2D" uid="uid://bwjtsq867qxy5" path="res://assets/Menu_Fondo-Izq.png" id="2_qcl6i"]
 [ext_resource type="Texture2D" uid="uid://c2ocsxchq77kq" path="res://assets/Menu_Fondo-Der.png" id="3_2xgxd"]
 [ext_resource type="AudioStream" uid="uid://fc85uos5kwal" path="res://assets/Música/SFX/SFX_UI_Play.wav" id="3_nxt0m"]
 [ext_resource type="AudioStream" uid="uid://dxs3ruky1tb74" path="res://assets/Música/SFX/SFX_UI.wav" id="4_2xgxd"]
+[ext_resource type="FontFile" uid="uid://bw6qtii031skp" path="res://assets/font/KR Magic Rabbit.ttf" id="4_8k4fm"]
 [ext_resource type="AudioStream" uid="uid://bwl4fbkek65xp" path="res://assets/Música/MUS_Patos esquizos_Menu.wav" id="5_8k4fm"]
-
-[sub_resource type="Animation" id="Animation_8k4fm"]
-resource_name = "cortinas"
-length = 1.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D2:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(980, 0), Vector2(-20, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(950, -2), Vector2(1950, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("VBoxContainer:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.833333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Label:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.833333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
+[ext_resource type="FontFile" uid="uid://dqk65yfaupxud" path="res://assets/font/Magical Demo.otf" id="5_lgh5n"]
 
 [sub_resource type="Animation" id="Animation_lgh5n"]
 length = 0.001
@@ -133,6 +83,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Label2:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_jaljy"]
 resource_name = "animacion2"
@@ -185,8 +147,76 @@ tracks/3/keys = {
 "values": [Vector2(950, -2)]
 }
 
+[sub_resource type="Animation" id="Animation_8k4fm"]
+resource_name = "cortinas"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(980, 0), Vector2(-20, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(950, -2), Vector2(1950, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.833333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.833333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.84),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2xgxd"]
+resource_name = "ApretarBoton"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hucf5"]
 _data = {
+&"ApretarBoton": SubResource("Animation_2xgxd"),
 &"RESET": SubResource("Animation_lgh5n"),
 &"animacion2": SubResource("Animation_jaljy"),
 &"cortinas": SubResource("Animation_8k4fm")
@@ -225,14 +255,33 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -0.5
+offset_left = -797.0
 offset_top = 200.0
-offset_right = 0.5
-offset_bottom = 223.0
+offset_right = 836.0
+offset_bottom = 372.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 91
-text = "Un conejo no es lo que parece"
+theme_override_fonts/font = ExtResource("4_8k4fm")
+theme_override_font_sizes/font_size = 156
+text = "U"
 vertical_alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1101.0
+offset_top = 202.0
+offset_right = 1254.0
+offset_bottom = 436.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_lgh5n")
+theme_override_font_sizes/font_size = 231
+text = "n conejo no es lo que parece"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_group_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -254,7 +303,8 @@ alignment = 1
 [node name="jugar" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0.53, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 61
+theme_override_fonts/font = ExtResource("5_lgh5n")
+theme_override_font_sizes/font_size = 140
 text = "Jugar"
 icon_alignment = 1
 
@@ -265,7 +315,8 @@ volume_db = 12.0
 [node name="salir" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0.53, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 61
+theme_override_fonts/font = ExtResource("5_lgh5n")
+theme_override_font_sizes/font_size = 140
 text = "Salir"
 icon_alignment = 1
 

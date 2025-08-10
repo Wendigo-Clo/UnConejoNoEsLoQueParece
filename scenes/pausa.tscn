@@ -1,6 +1,99 @@
-[gd_scene load_steps=2 format=3 uid="uid://ba5mqurtte1we"]
+[gd_scene load_steps=9 format=3 uid="uid://ba5mqurtte1we"]
 
 [ext_resource type="Script" uid="uid://bvisbbj1qxsid" path="res://scripts/pausa.gd" id="1_3kuwy"]
+[ext_resource type="Texture2D" uid="uid://bwjtsq867qxy5" path="res://assets/Menu_Fondo-Izq.png" id="2_k5nbw"]
+[ext_resource type="FontFile" uid="uid://dqk65yfaupxud" path="res://assets/font/Magical Demo.otf" id="2_qtdsr"]
+[ext_resource type="Texture2D" uid="uid://c2ocsxchq77kq" path="res://assets/Menu_Fondo-Der.png" id="3_d1dax"]
+
+[sub_resource type="Animation" id="Animation_eqlbv"]
+resource_name = "cortinas"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/Sprite2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-20, 0), Vector2(980, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1950, -2), Vector2(950, -2)]
+}
+
+[sub_resource type="Animation" id="Animation_xa0t4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/Sprite2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-20, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1950, -2)]
+}
+
+[sub_resource type="Animation" id="Animation_k5nbw"]
+resource_name = "adiosCortinas"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/Sprite2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(980, 0), Vector2(-20, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(950, 0), Vector2(1950, -2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ao72p"]
+_data = {
+&"RESET": SubResource("Animation_xa0t4"),
+&"adiosCortinas": SubResource("Animation_k5nbw"),
+&"cortinas": SubResource("Animation_eqlbv")
+}
 
 [node name="pausa" type="CanvasLayer"]
 process_mode = 3
@@ -15,6 +108,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.85098, 0.329412, 0.905882, 0.0862745)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ColorRect"]
+position = Vector2(-20, 0)
+texture = ExtResource("2_k5nbw")
+offset = Vector2(-484, 533)
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect"]
+position = Vector2(1950, -2)
+texture = ExtResource("3_d1dax")
+offset = Vector2(490.82, 538)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_ao72p")
+}
 
 [node name="Control" type="Control" parent="ColorRect"]
 layout_mode = 1
@@ -39,19 +148,22 @@ alignment = 1
 [node name="Label" type="Label" parent="ColorRect/Control/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 120
+theme_override_fonts/font = ExtResource("2_qtdsr")
+theme_override_font_sizes/font_size = 235
 text = "Pausa!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Rein" type="Button" parent="ColorRect/Control/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 56
-text = "Reintentar"
+theme_override_fonts/font = ExtResource("2_qtdsr")
+theme_override_font_sizes/font_size = 111
+text = "Menu"
 
 [node name="salir" type="Button" parent="ColorRect/Control/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 56
+theme_override_fonts/font = ExtResource("2_qtdsr")
+theme_override_font_sizes/font_size = 101
 text = "Salir"
 
 [connection signal="pressed" from="ColorRect/Control/VBoxContainer/Rein" to="." method="_on_rein_pressed"]

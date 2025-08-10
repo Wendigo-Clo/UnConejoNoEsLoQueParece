@@ -1,0 +1,35 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://0h5f503fsq36"
+path="res://.godot/imported/Magical Star Demo.otf-e1edd3b7e8bb1a09f3244c6b993416d9.fontdata"
+
+[deps]
+
+source_file="res://assets/font/Magical Star Demo.otf"
+dest_files=["res://.godot/imported/Magical Star Demo.otf-e1edd3b7e8bb1a09f3244c6b993416d9.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+disable_embedded_bitmaps=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=4
+keep_rounding_remainders=true
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}
