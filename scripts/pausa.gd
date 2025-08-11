@@ -2,7 +2,12 @@ extends CanvasLayer
 
 var cortinasSi = true
 
-func _physics_process(delta: float) -> void:
+func pausar():
+	$ColorRect/AnimationPlayer.play("cortinas")
+	get_tree().paused = not get_tree().paused
+
+
+func _physics_process(_delta: float) -> void:
 	if (Input.is_action_just_pressed("pausa")):
 		if(cortinasSi):
 			$ColorRect/AnimationPlayer.play("cortinas")

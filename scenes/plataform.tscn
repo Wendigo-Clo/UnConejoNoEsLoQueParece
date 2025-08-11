@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b6ksdtdufc01g"]
 
 [ext_resource type="Script" uid="uid://o1ad11fl56cl" path="res://scripts/plataform.gd" id="1_8h2yb"]
-[ext_resource type="Texture2D" uid="uid://5moqvr16bobo" path="res://assets/Tileset.png" id="1_s5nw7"]
+[ext_resource type="Texture2D" uid="uid://cu01gur1j52gw" path="res://assets/61 sin título_20250810145849.png" id="2_8h2yb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_um5iv"]
 
@@ -14,11 +14,9 @@ script = ExtResource("1_8h2yb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_repeat = 2
-position = Vector2(-1, 0)
-scale = Vector2(7, 2.511)
-texture = ExtResource("1_s5nw7")
-region_enabled = true
-region_rect = Rect2(17.5, 31, 47, 21)
+position = Vector2(-1, 31.805)
+scale = Vector2(0.395, 0.38)
+texture = ExtResource("2_8h2yb")
 region_filter_clip_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

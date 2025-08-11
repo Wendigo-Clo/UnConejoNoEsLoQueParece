@@ -9,6 +9,9 @@
 [ext_resource type="AudioStream" uid="uid://bwl4fbkek65xp" path="res://assets/Música/MUS_Patos esquizos_Menu.wav" id="5_8k4fm"]
 [ext_resource type="FontFile" uid="uid://dqk65yfaupxud" path="res://assets/font/Magical Demo.otf" id="5_lgh5n"]
 
+[sub_resource type="Animation" id="Animation_2xgxd"]
+resource_name = "ApretarBoton"
+
 [sub_resource type="Animation" id="Animation_lgh5n"]
 length = 0.001
 tracks/0/type = "value"
@@ -210,9 +213,6 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
-
-[sub_resource type="Animation" id="Animation_2xgxd"]
-resource_name = "ApretarBoton"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hucf5"]
 _data = {

@@ -66,15 +66,28 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func die():
+	position = Vector2(997.0,540)
 	Global.sigueVivo = false
 	Global.playerDeath()
 
+
+func gane():
+	$CollisionShape2D.disabled = true
+	$Area2D.visible = false
+	position = Vector2(997.0,540)
+	Telon.fade_out()
+	Telon.cerrar()
+	#await get_tree().create_timer(.5).timeout
+	get_tree().change_scene_to_file("res://scenes/cinematico_outro.tscn")
 #
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if (body.is_in_group("enemy")):
 		if(body.is_in_group("snake")):
-			$AudioStreamPlayer2D.play()
-			await get_tree().create_timer(1.2).timeout
+			$snake.play()
+			await get_tree().create_timer(.2).timeout
+		else:
+			$dieSound.play()
+			await get_tree().create_timer(.2).timeout
 		die()
 	pass # Replace with function body.
 
@@ -82,8 +95,11 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if (area.is_in_group("enemy")):
 		if(area.is_in_group("snake")):
-			$AudioStreamPlayer2D.play()
-			await get_tree().create_timer(.8).timeout
+			$snake.play()
+			await get_tree().create_timer(.2).timeout
+		else:
+			$dieSound.play()
+			await get_tree().create_timer(.2).timeout
 		print("Has muerto!")
 		die()
 	pass # Replace with function body.

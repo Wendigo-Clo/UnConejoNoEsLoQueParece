@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://oi7rkxv0xcf1"]
 
 [ext_resource type="Script" uid="uid://c0yiq8a1wcg8f" path="res://scripts/plataform_spike.gd" id="1_83wwh"]
-[ext_resource type="Texture2D" uid="uid://5moqvr16bobo" path="res://assets/Tileset.png" id="2_83wwh"]
-[ext_resource type="Texture2D" uid="uid://bg7h1nivsoako" path="res://assets/4 Conjoined Spikes.png" id="3_j7qti"]
+[ext_resource type="Texture2D" uid="uid://dy5k13s370pc5" path="res://assets/61 sin título.2025.08.11-06.20_20250810163535.png" id="2_83wwh"]
+[ext_resource type="Texture2D" uid="uid://d4fijxmyathbm" path="res://assets/61 sin título.2025.08.11-06.20_20250810163854.png" id="3_j7qti"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_um5iv"]
 
@@ -20,7 +20,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1, 0)]
+"values": [Vector2(-1, 167.505)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -56,7 +56,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(8.157, 6.716)]
+"values": [Vector2(0.3, 0.137)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -116,10 +116,10 @@ tracks/0/path = NodePath("Sprite2D2:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.17, 0.38, 0.533333, 0.766667, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-1, 0), Vector2(-1, -15.55), Vector2(-1, -29.165), Vector2(-1, -34.955), Vector2(-1, -40.7), Vector2(-1, -70.99)]
+"values": [Vector2(0, 186.235), Vector2(0, 60.32)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -152,10 +152,10 @@ tracks/3/path = NodePath("Sprite2D2:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.21, 0.49, 0.766667, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(8.157, 6.716), Vector2(8.157, 9.756), Vector2(8.157, 13.941), Vector2(8.157, 16.056), Vector2(8.157, 22.706)]
+"values": [Vector2(0.3, 0.08), Vector2(0.3, 0.3)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -203,7 +203,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0, 0.836667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false, true]
+"values": [true, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0dnwi"]
@@ -212,27 +212,22 @@ _data = {
 &"spikes": SubResource("Animation_m4xle")
 }
 
-[node name="plataforma_spike" type="StaticBody2D" groups=["enemy", "enemy_spike"]]
+[node name="plataforma_spike" type="StaticBody2D"]
 light_mask = 0
 visibility_layer = 2
 script = ExtResource("1_83wwh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.889685, 0.649859, 0.325899, 1)
-texture_repeat = 2
-position = Vector2(-1, 0)
-scale = Vector2(7, 2.511)
+scale = Vector2(0.38, 0.51)
 texture = ExtResource("2_83wwh")
-region_enabled = true
-region_rect = Rect2(17.5, 31, 47, 21)
 region_filter_clip_enabled = true
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 modulate = Color(1, 0.305882, 1, 1)
 z_index = -2
 texture_repeat = 2
-position = Vector2(-1, 0)
-scale = Vector2(8.157, 6.716)
+position = Vector2(-1, 167.505)
+scale = Vector2(0.3, 0.137)
 texture = ExtResource("3_j7qti")
 region_rect = Rect2(17.5, 31, 47, 21)
 region_filter_clip_enabled = true
@@ -241,21 +236,21 @@ region_filter_clip_enabled = true
 visible = false
 light_mask = 0
 visibility_layer = 2
-position = Vector2(-12, -93)
+position = Vector2(-1, 172)
 scale = Vector2(12.405, 1.575)
 shape = SubResource("RectangleShape2D_um5iv")
 one_way_collision = true
 one_way_collision_margin = 10.0
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["enemy", "enemy_spike"]]
 visible = false
 position = Vector2(1, 1)
 scale = Vector2(0.795, 0.935)
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["enemy", "enemy_spike"]]
 visible = false
-position = Vector2(-10.0629, -102.674)
+position = Vector2(-5.03145, 132.62)
 scale = Vector2(17, 3)
 shape = SubResource("RectangleShape2D_8h2yb")
 disabled = true

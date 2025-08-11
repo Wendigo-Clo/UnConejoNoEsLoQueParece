@@ -15,7 +15,7 @@ func _ready() -> void:
 	pass
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var cam_y = get_viewport().get_camera_2d().global_position.y
 	var screen_height = get_viewport_rect().size.y
 	var bottom_limit = cam_y + screen_height / 2 + 150
