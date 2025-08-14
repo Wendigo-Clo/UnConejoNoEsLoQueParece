@@ -2,6 +2,9 @@ extends Control
 
 signal termino
 
+
+
+
 func abrir():
 	$AnimationPlayer.play("cerrar")
 	await get_tree().create_timer(1.2).timeout
@@ -21,3 +24,8 @@ func fade():
 func fade_out():
 	$AnimationPlayer.play("fade_out")
 	await get_tree().create_timer(.6).timeout
+	
+func fada_fantasy():
+	$AnimationPlayer.play("Fantasi")
+	await get_tree().create_timer(.6).timeout
+	

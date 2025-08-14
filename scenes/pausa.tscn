@@ -1,9 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://ba5mqurtte1we"]
+[gd_scene load_steps=15 format=3 uid="uid://ba5mqurtte1we"]
 
 [ext_resource type="Script" uid="uid://bvisbbj1qxsid" path="res://scripts/pausa.gd" id="1_3kuwy"]
 [ext_resource type="Texture2D" uid="uid://bwjtsq867qxy5" path="res://assets/Menu_Fondo-Izq.png" id="2_k5nbw"]
 [ext_resource type="FontFile" uid="uid://dqk65yfaupxud" path="res://assets/font/Magical Demo.otf" id="2_qtdsr"]
 [ext_resource type="Texture2D" uid="uid://c2ocsxchq77kq" path="res://assets/Menu_Fondo-Der.png" id="3_d1dax"]
+[ext_resource type="Shader" uid="uid://2so4dwndiuux" path="res://shaders/menu_principal.gdshader" id="5_ao72p"]
+[ext_resource type="Texture2D" uid="uid://cjt81nfcayei3" path="res://assets/Actualizar/boton.png" id="6_76yvm"]
+[ext_resource type="AudioStream" uid="uid://dxs3ruky1tb74" path="res://assets/Música/SFX/SFX_UI.wav" id="7_nrjir"]
+[ext_resource type="Texture2D" uid="uid://y8ub1m1mwxrm" path="res://assets/Actualizar/sombrero.png" id="8_174ip"]
 
 [sub_resource type="Animation" id="Animation_xa0t4"]
 length = 0.001
@@ -30,6 +34,114 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1950, -2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect/Control/VBoxContainer/Reintentar/Sombrero:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect/Control/VBoxContainer/Salir/Sombrero:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect/Control/VBoxContainer/Reintentar:material:shader_parameter/progress")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect/Control/VBoxContainer/Salir:material:shader_parameter/progress")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ColorRect/Control/VBoxContainer/Reintentar/Sombrero:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(107, 99.54)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ColorRect/Control/VBoxContainer/Salir/Sombrero:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(107, 99.54)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ColorRect/Control/VBoxContainer/Reintentar/Label:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ColorRect/Control/VBoxContainer/Salir/Label:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ColorRect/Control/VBoxContainer/Label:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_k5nbw"]
@@ -88,12 +200,128 @@ tracks/1/keys = {
 "values": [Vector2(1950, -2), Vector2(950, -2)]
 }
 
+[sub_resource type="Animation" id="Animation_3fck6"]
+resource_name = "nuttons"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/Control/VBoxContainer/Reintentar/Sombrero:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.766667, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/Control/VBoxContainer/Salir/Sombrero:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.766667, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect/Control/VBoxContainer/Reintentar:material:shader_parameter/progress")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.866667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect/Control/VBoxContainer/Salir:material:shader_parameter/progress")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.866667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect/Control/VBoxContainer/Reintentar/Sombrero:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(107, 99.54), Vector2(775, 99.54)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect/Control/VBoxContainer/Salir/Sombrero:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(107, 99.54), Vector2(775, 99.54)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ColorRect/Control/VBoxContainer/Reintentar/Label:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.545672),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ColorRect/Control/VBoxContainer/Salir/Label:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.545672),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ColorRect/Control/VBoxContainer/Label:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ao72p"]
 _data = {
 &"RESET": SubResource("Animation_xa0t4"),
 &"adiosCortinas": SubResource("Animation_k5nbw"),
-&"cortinas": SubResource("Animation_eqlbv")
+&"cortinas": SubResource("Animation_eqlbv"),
+&"nuttons": SubResource("Animation_3fck6")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6mwyt"]
+shader = ExtResource("5_ao72p")
+shader_parameter/progress = 0.0
 
 [node name="pausa" type="CanvasLayer"]
 process_mode = 3
@@ -120,6 +348,7 @@ texture = ExtResource("3_d1dax")
 offset = Vector2(490.82, 538)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+process_mode = 3
 root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_ao72p")
@@ -148,23 +377,80 @@ alignment = 1
 [node name="Label" type="Label" parent="ColorRect/Control/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_qtdsr")
 theme_override_font_sizes/font_size = 235
 text = "Pausa!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Rein" type="Button" parent="ColorRect/Control/VBoxContainer"]
+[node name="Reintentar" type="Button" parent="ColorRect/Control/VBoxContainer"]
+material = SubResource("ShaderMaterial_6mwyt")
+custom_minimum_size = Vector2(0.53, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_qtdsr")
-theme_override_font_sizes/font_size = 111
-text = "Menu"
+theme_override_font_sizes/font_size = 140
+icon = ExtResource("6_76yvm")
+flat = true
+icon_alignment = 1
+metadata/_edit_group_ = true
 
-[node name="salir" type="Button" parent="ColorRect/Control/VBoxContainer"]
+[node name="Label" type="Label" parent="ColorRect/Control/VBoxContainer/Reintentar"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.5
+offset_top = 31.54
+offset_right = 91.5
+offset_bottom = 190.54
+grow_horizontal = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_qtdsr")
+theme_override_font_sizes/font_size = 156
+text = "   Reintentar"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Sombrero" type="Sprite2D" parent="ColorRect/Control/VBoxContainer/Reintentar"]
+position = Vector2(107, 99.54)
+texture = ExtResource("8_174ip")
+
+[node name="Salir" type="Button" parent="ColorRect/Control/VBoxContainer"]
+material = SubResource("ShaderMaterial_6mwyt")
+custom_minimum_size = Vector2(0.53, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_qtdsr")
-theme_override_font_sizes/font_size = 101
+theme_override_font_sizes/font_size = 140
+icon = ExtResource("6_76yvm")
+flat = true
+icon_alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="ColorRect/Control/VBoxContainer/Salir"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.5
+offset_top = 31.54
+offset_right = 91.5
+offset_bottom = 190.54
+grow_horizontal = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_qtdsr")
+theme_override_font_sizes/font_size = 156
 text = "Salir"
+horizontal_alignment = 1
+vertical_alignment = 2
 
-[connection signal="pressed" from="ColorRect/Control/VBoxContainer/Rein" to="." method="_on_rein_pressed"]
-[connection signal="pressed" from="ColorRect/Control/VBoxContainer/salir" to="." method="_on_salir_pressed"]
+[node name="Sombrero" type="Sprite2D" parent="ColorRect/Control/VBoxContainer/Salir"]
+position = Vector2(107, 99.54)
+texture = ExtResource("8_174ip")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_nrjir")
+volume_db = 8.0
+
+[connection signal="pressed" from="ColorRect/Control/VBoxContainer/Reintentar" to="." method="_on_reintentar_pressed"]
+[connection signal="pressed" from="ColorRect/Control/VBoxContainer/Salir" to="." method="_on_salir_pressed"]

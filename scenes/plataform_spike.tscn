@@ -223,7 +223,6 @@ texture = ExtResource("2_83wwh")
 region_filter_clip_enabled = true
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-modulate = Color(1, 0.305882, 1, 1)
 z_index = -2
 texture_repeat = 2
 position = Vector2(-1, 167.505)

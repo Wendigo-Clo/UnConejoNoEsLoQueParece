@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://cnbp8lygh65q7"]
+[gd_scene load_steps=11 format=3 uid="uid://cnbp8lygh65q7"]
 
-[ext_resource type="VideoStream" uid="uid://bsectckiroug5" path="res://assets/cinematix/Intro-Animacion.ogv" id="1_cnwoy"]
+[ext_resource type="VideoStream" uid="uid://beirn4l45wleg" path="res://assets/cinematix/Intro-Animacion (1).ogv" id="1_8ngt0"]
 [ext_resource type="Script" uid="uid://p5pq3nnbe2d4" path="res://scenes/cinematico.gd" id="2_8ngt0"]
 [ext_resource type="AudioStream" uid="uid://b03afccc2vp16" path="res://assets/Música/SFX/Mus_Cinematica.wav" id="2_qf8wt"]
 [ext_resource type="Texture2D" uid="uid://bwjtsq867qxy5" path="res://assets/Menu_Fondo-Izq.png" id="4_eehpi"]
@@ -44,6 +44,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_skoot"]
 resource_name = "cerrarCortinas"
@@ -72,6 +84,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(1950, 0), Vector2(950, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_8ngt0"]
 resource_name = "fade"
@@ -89,11 +125,28 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_eehpi"]
+resource_name = "fade_out"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j1vbq"]
 _data = {
 &"RESET": SubResource("Animation_vxr48"),
 &"cerrarCortinas": SubResource("Animation_skoot"),
-&"fade": SubResource("Animation_8ngt0")
+&"fade": SubResource("Animation_8ngt0"),
+&"fade_out": SubResource("Animation_eehpi")
 }
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer"]
@@ -102,12 +155,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = ExtResource("1_cnwoy")
+stream = ExtResource("1_8ngt0")
 script = ExtResource("2_8ngt0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_qf8wt")
-volume_db = 10.0
+volume_db = 5.0
 autoplay = true
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
@@ -124,14 +186,5 @@ offset = Vector2(490.82, 538)
 libraries = {
 &"": SubResource("AnimationLibrary_j1vbq")
 }
-
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
 
 [connection signal="finished" from="." to="." method="_on_finished"]

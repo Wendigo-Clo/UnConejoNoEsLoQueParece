@@ -1,15 +1,31 @@
-[gd_scene load_steps=10 format=3 uid="uid://docrldohjurml"]
+[gd_scene load_steps=11 format=3 uid="uid://docrldohjurml"]
 
 [ext_resource type="Script" uid="uid://bsat4xw6gcn6r" path="res://scenes/telon.gd" id="1_6i4x0"]
 [ext_resource type="Texture2D" uid="uid://bwjtsq867qxy5" path="res://assets/Menu_Fondo-Izq.png" id="1_8oqy8"]
 [ext_resource type="Texture2D" uid="uid://c2ocsxchq77kq" path="res://assets/Menu_Fondo-Der.png" id="2_6i4x0"]
+
+[sub_resource type="Animation" id="Animation_k2e2k"]
+resource_name = "Fantasi"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.964706)]
+}
 
 [sub_resource type="Animation" id="Animation_oqu74"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D2:position")
+tracks/0/path = NodePath("ParallaxBackgroundI/ParallaxLayer/Sprite2D2:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -21,7 +37,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/path = NodePath("ParallaxBackgroundD/ParallaxLayer/Sprite2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -40,7 +56,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0, 0, 0)]
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_m557b"]
@@ -48,7 +64,7 @@ resource_name = "abrir"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D2:position")
+tracks/0/path = NodePath("ParallaxBackgroundI/ParallaxLayer/Sprite2D2:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -60,7 +76,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/path = NodePath("ParallaxBackgroundD/ParallaxLayer/Sprite2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -75,7 +91,7 @@ resource_name = "cerrar"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D2:position")
+tracks/0/path = NodePath("ParallaxBackgroundI/ParallaxLayer/Sprite2D2:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -87,7 +103,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/path = NodePath("ParallaxBackgroundD/ParallaxLayer/Sprite2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -102,7 +118,7 @@ resource_name = "fade"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath("ParallaxBackgroundD/ParallaxLayer/Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -114,7 +130,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D2:position")
+tracks/1/path = NodePath("ParallaxBackgroundI/ParallaxLayer/Sprite2D2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -154,6 +170,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hhnfn"]
 _data = {
+&"Fantasi": SubResource("Animation_k2e2k"),
 &"RESET": SubResource("Animation_oqu74"),
 &"abrir": SubResource("Animation_m557b"),
 &"cerrar": SubResource("Animation_v2v1j"),
@@ -172,12 +189,24 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6i4x0")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="ParallaxBackgroundI" type="ParallaxBackground" parent="."]
+layer = 10
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackgroundI"]
+motion_mirroring = Vector2(0, 1078.99)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackgroundI/ParallaxLayer"]
 position = Vector2(-20, 0)
 texture = ExtResource("1_8oqy8")
 offset = Vector2(-484, 533)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="ParallaxBackgroundD" type="ParallaxBackground" parent="."]
+layer = 10
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackgroundD"]
+motion_mirroring = Vector2(0, 1078.99)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackgroundD/ParallaxLayer"]
 position = Vector2(1950, 0)
 texture = ExtResource("2_6i4x0")
 offset = Vector2(490.82, 538)
@@ -187,12 +216,17 @@ process_mode = 3
 libraries = {
 &"": SubResource("AnimationLibrary_hhnfn")
 }
+autoplay = "RESET"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -480.0
+offset_top = -1094.0
+offset_right = 600.0
+offset_bottom = 826.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0)
+color = Color(1, 1, 1, 0)

@@ -1,16 +1,121 @@
-[gd_scene load_steps=14 format=3 uid="uid://c1l4ld31ta0uw"]
+[gd_scene load_steps=19 format=3 uid="uid://c1l4ld31ta0uw"]
 
 [ext_resource type="Script" uid="uid://c213d7ugnpboa" path="res://scripts/menuPrincipal.gd" id="1_w5ui5"]
 [ext_resource type="Texture2D" uid="uid://bwjtsq867qxy5" path="res://assets/Menu_Fondo-Izq.png" id="2_qcl6i"]
 [ext_resource type="Texture2D" uid="uid://c2ocsxchq77kq" path="res://assets/Menu_Fondo-Der.png" id="3_2xgxd"]
-[ext_resource type="AudioStream" uid="uid://fc85uos5kwal" path="res://assets/Música/SFX/SFX_UI_Play.wav" id="3_nxt0m"]
 [ext_resource type="AudioStream" uid="uid://dxs3ruky1tb74" path="res://assets/Música/SFX/SFX_UI.wav" id="4_2xgxd"]
 [ext_resource type="FontFile" uid="uid://bw6qtii031skp" path="res://assets/font/KR Magic Rabbit.ttf" id="4_8k4fm"]
 [ext_resource type="AudioStream" uid="uid://bwl4fbkek65xp" path="res://assets/Música/MUS_Patos esquizos_Menu.wav" id="5_8k4fm"]
 [ext_resource type="FontFile" uid="uid://dqk65yfaupxud" path="res://assets/font/Magical Demo.otf" id="5_lgh5n"]
+[ext_resource type="Shader" uid="uid://2so4dwndiuux" path="res://shaders/menu_principal.gdshader" id="6_hucf5"]
+[ext_resource type="Texture2D" uid="uid://cjt81nfcayei3" path="res://assets/Actualizar/boton.png" id="6_jaljy"]
+[ext_resource type="Texture2D" uid="uid://y8ub1m1mwxrm" path="res://assets/Actualizar/sombrero.png" id="8_hucf5"]
+[ext_resource type="AudioStream" uid="uid://fc85uos5kwal" path="res://assets/Música/SFX/SFX_UI_Play.wav" id="8_qswqd"]
+[ext_resource type="Texture2D" uid="uid://ddsihyvd3o6tc" path="res://assets/Un conejo, no es lo que parece_20250810_235525_0000.png" id="11_qswqd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u72up"]
+shader = ExtResource("6_hucf5")
+shader_parameter/progress = 0.0
 
 [sub_resource type="Animation" id="Animation_2xgxd"]
 resource_name = "ApretarBoton"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/Jugar:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/Salir/Sombrero:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(168, 99.54), Vector2(775, 99.54)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/Jugar/Sombrero:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(168, 99.54), Vector2(775, 99.54)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer/Salir/Label:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.27),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VBoxContainer/Jugar/Label:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.27),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("VBoxContainer/Salir/Sombrero:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.356578, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("VBoxContainer/Jugar/Sombrero:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.356578, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_lgh5n"]
 length = 0.001
@@ -93,6 +198,102 @@ tracks/6/path = NodePath("Label2:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Control:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("VBoxContainer/Jugar:material:shader_parameter/progress")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("VBoxContainer/Salir/Sombrero:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(168, 99.54)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("VBoxContainer/Jugar/Sombrero:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(168, 99.54)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("VBoxContainer/Salir/Label:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("VBoxContainer/Jugar/Label:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("VBoxContainer/Salir/Sombrero:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("VBoxContainer/Jugar/Sombrero:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -213,6 +414,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.83),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hucf5"]
 _data = {
@@ -232,6 +445,7 @@ grow_vertical = 2
 script = ExtResource("1_w5ui5")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -251,6 +465,7 @@ texture = ExtResource("3_2xgxd")
 offset = Vector2(490.82, 538)
 
 [node name="Label" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -267,6 +482,7 @@ vertical_alignment = 1
 metadata/_edit_group_ = true
 
 [node name="Label2" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -285,48 +501,97 @@ metadata/_edit_group_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -464.0
-offset_top = 138.96
-offset_right = 479.0
-offset_bottom = 372.96
+anchor_bottom = 1.0
+offset_left = -360.0
+offset_top = -420.665
+offset_right = 540.0
+offset_bottom = 121.335
 grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(2106, -244.96)
-theme_override_constants/separation = 50
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+theme_override_constants/separation = 0
 alignment = 1
 
-[node name="jugar" type="Button" parent="VBoxContainer"]
+[node name="Jugar" type="Button" parent="VBoxContainer"]
+material = SubResource("ShaderMaterial_u72up")
 custom_minimum_size = Vector2(0.53, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_lgh5n")
 theme_override_font_sizes/font_size = 140
+icon = ExtResource("6_jaljy")
+flat = true
+icon_alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="VBoxContainer/Jugar"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.5
+offset_top = 31.54
+offset_right = 91.5
+offset_bottom = 190.54
+grow_horizontal = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_lgh5n")
+theme_override_font_sizes/font_size = 156
 text = "Jugar"
-icon_alignment = 1
+horizontal_alignment = 1
+vertical_alignment = 2
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="VBoxContainer/jugar"]
-stream = ExtResource("3_nxt0m")
-volume_db = 12.0
+[node name="Sombrero" type="Sprite2D" parent="VBoxContainer/Jugar"]
+position = Vector2(168, 99.54)
+texture = ExtResource("8_hucf5")
 
-[node name="salir" type="Button" parent="VBoxContainer"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="VBoxContainer/Jugar"]
+stream = ExtResource("8_qswqd")
+volume_db = 8.0
+
+[node name="Salir" type="Button" parent="VBoxContainer"]
+material = SubResource("ShaderMaterial_u72up")
 custom_minimum_size = Vector2(0.53, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_lgh5n")
 theme_override_font_sizes/font_size = 140
-text = "Salir"
+icon = ExtResource("6_jaljy")
+flat = true
 icon_alignment = 1
+metadata/_edit_group_ = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="VBoxContainer/salir"]
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="VBoxContainer/Salir"]
+position = Vector2(0, -201)
 stream = ExtResource("4_2xgxd")
 volume_db = 12.0
 
+[node name="Label" type="Label" parent="VBoxContainer/Salir"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.5
+offset_top = 31.54
+offset_right = 91.5
+offset_bottom = 190.54
+grow_horizontal = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_lgh5n")
+theme_override_font_sizes/font_size = 156
+text = "Salir"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Sombrero" type="Sprite2D" parent="VBoxContainer/Salir"]
+position = Vector2(168, 99.54)
+texture = ExtResource("8_hucf5")
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_8k4fm")
-volume_db = 10.0
+volume_db = 5.0
 autoplay = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -334,5 +599,29 @@ libraries = {
 &"": SubResource("AnimationLibrary_hucf5")
 }
 
-[connection signal="pressed" from="VBoxContainer/jugar" to="." method="_on_jugar_pressed"]
-[connection signal="pressed" from="VBoxContainer/salir" to="." method="_on_salir_pressed"]
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -524.0
+offset_top = -170.0
+offset_right = 1821.0
+offset_bottom = 2085.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("11_qswqd")
+expand_mode = 1
+
+[connection signal="pressed" from="VBoxContainer/Jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_pressed"]
