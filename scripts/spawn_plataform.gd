@@ -30,8 +30,6 @@ func spawnear():
 	if last_spawn_y > cam_pos.y:
 		return
 
-
-
 	valorRandom = randf_range(0, viewport.size.x)
 	while abs(valorRandom - ultima_x) < distancia_minima_x:
 		valorRandom = randf_range(0, viewport.size.x)
@@ -44,12 +42,9 @@ func spawnear():
 	var plataforma = escena_a_instanciar.instantiate()
 	plataforma.position = positionSpawn
 	add_child(plataforma)
-
 	ultima_x = valorRandom
 	last_spawn_y = positionSpawn.y
 	
-
-
 
 
 func _on_timer_timeout() -> void:

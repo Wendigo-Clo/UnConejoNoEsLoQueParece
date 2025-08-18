@@ -13,7 +13,7 @@ func _ready() -> void:
 func _physics_process(_delta):
 	var cam_y = get_viewport().get_camera_2d().global_position.y
 	var screen_height = get_viewport_rect().size.y
-	var bottom_limit = cam_y + screen_height / 2 + 150
+	var bottom_limit = cam_y + screen_height / 2 + 200
 	
 	if global_position.y > bottom_limit:
 		queue_free()

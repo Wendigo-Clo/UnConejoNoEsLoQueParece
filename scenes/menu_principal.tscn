@@ -440,6 +440,7 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -13.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_w5ui5")
@@ -456,6 +457,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(980, 0)
+scale = Vector2(1, 1.01204)
 texture = ExtResource("2_qcl6i")
 offset = Vector2(-484, 533)
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="VideoStream" uid="uid://c38sul0wn0yxr" path="res://assets/cinematix/Outro-Animacion.ogv" id="1_8p53p"]
 [ext_resource type="Script" uid="uid://dk53avqeryghm" path="res://scripts/cinematico_outro.gd" id="2_8p53p"]
-[ext_resource type="AudioStream" uid="uid://dvmbxgoba5v0s" path="res://assets/Música/SFX/SFX_End_Win.wav" id="3_8p53p"]
+[ext_resource type="AudioStream" uid="uid://bwl4fbkek65xp" path="res://assets/Música/MUS_Patos esquizos_Menu.wav" id="3_8p53p"]
 [ext_resource type="Texture2D" uid="uid://bwjtsq867qxy5" path="res://assets/Menu_Fondo-Izq.png" id="4_it34e"]
 [ext_resource type="Texture2D" uid="uid://c2ocsxchq77kq" path="res://assets/Menu_Fondo-Der.png" id="5_2k1aj"]
 

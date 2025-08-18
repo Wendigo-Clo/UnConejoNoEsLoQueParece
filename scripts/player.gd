@@ -23,8 +23,11 @@ var cronometro : float = 0
 var max_jumps := 2  # cantidad máxima de saltos (doble salto = 2)
 var jumps_left := max_jumps
 
+var telon = null
+
 func _ready() -> void:
 	anim_tree.active = true
+	telon = Telon
 	pass
 	
 	
@@ -85,6 +88,8 @@ func gane():
 	$Area2D.queue_free()
 	position = Vector2(997,540)
 	puedoMoverme = false
+	telon.fada_fantasy()
+	await get_tree().create_timer(0.6).timeout
 	
 #
 func _on_area_2d_body_entered(body: Node2D) -> void:

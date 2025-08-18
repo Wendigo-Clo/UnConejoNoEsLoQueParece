@@ -1,6 +1,10 @@
 extends CanvasLayer
 
 var cortinasSi = true
+var telon = null
+
+func _ready() -> void:
+	telon = Telon
 
 func pausar():
 	$ColorRect/AnimationPlayer.play("cortinas")
@@ -27,7 +31,7 @@ func _on_salir_pressed() -> void: #SALIR
 	$AudioStreamPlayer2D.play()
 	$ColorRect/AnimationPlayer.play("nuttons")
 	await get_tree().create_timer(1).timeout
-	Telon.abrir
+	telon.abrir()
 	await get_tree().create_timer(1).timeout
 	get_tree().quit()
 	pass # Replace with function body.

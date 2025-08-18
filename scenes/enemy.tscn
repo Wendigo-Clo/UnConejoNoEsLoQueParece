@@ -12,6 +12,7 @@ script = ExtResource("1_7p1mj")
 [node name="Area2D" type="Area2D" parent="." groups=["enemy", "snake"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["enemy"]]
+position = Vector2(0, 126.015)
 scale = Vector2(100.14, 16.545)
 shape = SubResource("RectangleShape2D_7p1mj")
 debug_color = Color(0.988235, 0, 0.290196, 0.85098)

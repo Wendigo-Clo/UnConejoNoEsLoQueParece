@@ -8,9 +8,11 @@ extends Node2D
 @export var deathPack : PackedScene
 @export var enemyPack : PackedScene
 
+var telon = null
 var enemyFloor = null
 
 func _ready() -> void:
+	telon = Telon
 	Telon.abrir()
 
 	var spawn = SpawnPack.instantiate()
@@ -35,8 +37,10 @@ func _process(_delta: float) -> void:
 func _on_timer_timeout() -> void:
 	if (Global.sigueVivo):
 			$player.gane()
-	#Telon.fada_fantasy()
-	Telon.cerrar()
-	await get_tree().create_timer(1).timeout
+	$pausa.pausar()
+	
+	telon.fada_fantasy()
+	await get_tree().create_timer(1.2).timeout
+	$pausa.pausar()
 	get_tree().change_scene_to_file("res://scenes/cinematico_outro.tscn")
 	pass # Replace with function body.

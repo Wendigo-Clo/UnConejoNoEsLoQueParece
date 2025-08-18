@@ -29,3 +29,4 @@ func fada_fantasy():
 	$AnimationPlayer.play("Fantasi")
 	await get_tree().create_timer(.6).timeout
 	
+	
